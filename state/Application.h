@@ -9,7 +9,7 @@ private:
 
 public:
 	void run() {
-		Course* mathCourse = new Course("Inzynieria Oprogramowania", 1, 2);
+		Course* mathCourse = new Course("Inzynieria Oprogramowania", 1, 2, 20);
 		m_uniSystem.addCourse(mathCourse);
 
 		Student* s1 = new Student(1, "Jan Kowalski");

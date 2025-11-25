@@ -8,8 +8,6 @@ class Enrollment;
 
 class Course {
 private:
-	std::string m_name;
-	int m_id;
 	int m_capacity;
 
 	CourseState* m_state;
@@ -17,8 +15,13 @@ private:
 	std::vector<Enrollment*> m_vec_enrollments;
 
 public:
-	Course(std::string name, int id, int capacity)
-		: m_name(name), m_id(id), m_capacity(capacity) {
+
+	std::string name;
+	int id;
+	float hours;
+
+	Course(std::string name, int id, float hours, int capacity)
+		: name(name), id(id), hours(hours), m_capacity(capacity) {
 		m_state = new ClosedState();
 	}
 
@@ -36,7 +39,7 @@ public:
 
 		m_state = newState;
 		std::cout << "Zmiana stanu kursu: " 
-			<< m_name 
+			<< name 
 			<< " -> " 
 			<< m_state->getStateName() 
 			<< std::endl;
@@ -53,7 +56,7 @@ public:
 		m_vec_enrollments.push_back(e);
 	}
 
-	std::string getName() const { return m_name; }
+	std::string getName() const { return name; }
 	std::string getStateName() const {
 		return m_state->getStateName();
 	}
